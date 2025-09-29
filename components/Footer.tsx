@@ -10,7 +10,7 @@ export default function Footer() {
             SHOP.CO
           </h3>
           <p className="text-[#00000099]  text-sm font-normal leading-[22px] mb-6 max-w-[250px]">
-            We have clothes that suits your style and which you're proud to
+            We have clothes that suits your style and which you&apos;re proud to
             wear. From women to men.
           </p>
           <div className="flex justify-center md:justify-start space-x-4 max-[768]:justify-start">
