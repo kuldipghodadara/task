@@ -1,4 +1,3 @@
-
 // 'use client'
 
 // import { useState } from 'react'
@@ -40,7 +39,7 @@
 //               <input
 //                 type="text"
 //                 placeholder="Search for products..."
-//                 className="w-full  
+//                 className="w-full
 //  focus:outline-none  "
 //               />
 //             </div>
@@ -108,14 +107,13 @@
 
 // export default Header
 
+"use client";
 
-'use client'
-
-import { useState } from 'react'
-import { Search, ShoppingCart, User, ChevronDown, Menu, X } from 'lucide-react'
+import { useState } from "react";
+import { Search, ShoppingCart, User, ChevronDown, Menu, X } from "lucide-react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="w-full bg-white sticky top-0 z-50 py-6 px-2.5 left-0">
@@ -123,13 +121,16 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 ">
           {/* Logo */}
           <div className="flex items-center">
-                  {!isMenuOpen && (
-            <h1 className="text-2xl IntegralCF font-bold text-black">SHOP.CO</h1>)}
+            {!isMenuOpen && (
+              <h1 className='text-2xl IntegralCF  text-black font-["Bowlby_One_SC",sans-serif] font-black'>
+                SHOP.CO
+              </h1>
+            )}
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden min-[986px]:flex items-center space-x-8">
-            <div className="flex items-center space-x-1 text-gray-700 hover:text-black cursor-pointer">
+          <nav className="hidden min-[990px]:flex items-center space-x-8">
+            <div className="flex items-center space-x-1 text-gray-700 hover:text-black cursor-pointer ">
               <span>Shop</span>
               <ChevronDown className="h-4 w-4" />
             </div>
@@ -158,7 +159,6 @@ const Header = () => {
 
           {/* Right Icons */}
           <div className="flex items-center space-x-4">
-    
             {/* <button className="text-gray-600 hover:text-black relative">
               <ShoppingCart className="h-5 w-5" />
             </button>
@@ -166,29 +166,33 @@ const Header = () => {
               <User className="h-5 w-5" />
             </button> */}
 
-             {!isMenuOpen && (
-    <>
-      <button className="text-gray-600 hover:text-black relative">
-        <ShoppingCart className="h-5 w-5" />
-      </button>
-      <button className="text-gray-600 hover:text-black">
-        <User className="h-5 w-5" />
-      </button>
-    </>
-  )}
+            {!isMenuOpen && (
+              <>
+                <button className="text-gray-600 hover:text-black relative">
+                  <ShoppingCart className="h-5 w-5" />
+                </button>
+                <button className="text-gray-600 hover:text-black">
+                  <User className="h-5 w-5" />
+                </button>
+              </>
+            )}
             {/* Mobile menu toggle */}
             <button
-              className="min-[986px]:hidden text-gray-600 hover:text-black"
+              className="min-[990px]:hidden text-gray-600 hover:text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="min-[986px]:hidden  py-4 animate-in fade-in slide-in-from-right-2 w-full">
+          <div className="min-[990px]:hidden  py-4 animate-in fade-in slide-in-from-right-2 w-full">
             <nav className="flex flex-col space-y-4">
               <div className="flex items-center space-x-1 text-gray-700 hover:text-black cursor-pointer">
                 <span>Shop</span>
@@ -205,7 +209,7 @@ const Header = () => {
               </a>
 
               {/* Mobile Search */}
-            {/*   <div className="pt-4">
+              {/*   <div className="pt-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
                   <input
@@ -220,7 +224,7 @@ const Header = () => {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

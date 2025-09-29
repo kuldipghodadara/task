@@ -1,32 +1,80 @@
-'use client'
+"use client";
 
-import { Star } from 'lucide-react'
+import { Star } from "lucide-react";
 
 type Product = {
-  id: number
-  name: string
-  price: number
-  rating: number
-  image: string
-}
+  id: number;
+  name: string;
+  price: number;
+  rating: number;
+  image: string;
+};
 
 const products: {
-  newArrivals: Product[]
-  topSelling: Product[]
+  newArrivals: Product[];
+  topSelling: Product[];
 } = {
   newArrivals: [
-    { id: 1, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.5, image: '/api/placeholder/200/250' },
-    { id: 2, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.5, image: '/api/placeholder/200/250' },
-    { id: 3, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.5, image: '/api/placeholder/200/250' },
-    { id: 4, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.5, image: '/api/placeholder/200/250' }
+    {
+      id: 1,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.5,
+      image: "/api/placeholder/200/250",
+    },
+    {
+      id: 2,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.5,
+      image: "/api/placeholder/200/250",
+    },
+    {
+      id: 3,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.5,
+      image: "/api/placeholder/200/250",
+    },
+    {
+      id: 4,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.5,
+      image: "/api/placeholder/200/250",
+    },
   ],
   topSelling: [
-    { id: 5, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.9, image: '/api/placeholder/200/250' },
-    { id: 6, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.9, image: '/api/placeholder/200/250' },
-    { id: 7, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.9, image: '/api/placeholder/200/250' },
-    { id: 8, name: 'Gradient Graphic T-shirt', price: 30, rating: 4.9, image: '/api/placeholder/200/250' }
-  ]
-}
+    {
+      id: 5,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.9,
+      image: "/api/placeholder/200/250",
+    },
+    {
+      id: 6,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.9,
+      image: "/api/placeholder/200/250",
+    },
+    {
+      id: 7,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.9,
+      image: "/api/placeholder/200/250",
+    },
+    {
+      id: 8,
+      name: "Gradient Graphic T-shirt",
+      price: 30,
+      rating: 4.9,
+      image: "/api/placeholder/200/250",
+    },
+  ],
+};
 
 function ProductCard({ product }: { product: Product }) {
   return (
@@ -43,7 +91,9 @@ function ProductCard({ product }: { product: Product }) {
             <Star
               key={i}
               className={`w-4 h-4 ${
-                i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                i < Math.floor(product.rating)
+                  ? "text-yellow-400 fill-current"
+                  : "text-gray-300"
               }`}
             />
           ))}
@@ -52,16 +102,18 @@ function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="font-bold text-black">₹ {product.price}</div>
     </div>
-  )
+  );
 }
 
 export default function ProductGrid() {
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* New Arrivals */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">NEW ARRIVALS</h2>
+          <h2 className='text-5xl   text-black mb-8 font-["Bowlby_One_SC",sans-serif] font-black'>
+            NEW ARRIVALS
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {products.newArrivals.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -77,7 +129,9 @@ export default function ProductGrid() {
 
         {/* Top Selling */}
         <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">TOP SELLING</h2>
+          <h2 className='text-3xl sm:text-4xl text-black mb-8 font-["Bowlby_One_SC",sans-serif] font-black'>
+            TOP SELLING
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {products.topSelling.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -89,5 +143,5 @@ export default function ProductGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
